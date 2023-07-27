@@ -3,9 +3,15 @@
 import { apiKey } from './api.js'
 
 const weatherOutput = document.querySelector('.weather-output')
+const forecastOutput = document.querySelector('.weather-forecast')
 const inputSection = document.querySelector('.input-section')
 const inputCity = document.querySelector('#city')
 const checkBtn = document.querySelector('.check')
+const burger = document.querySelector('.hamburger')
+const headline = document.querySelector('.country-name')
+const tempsOutput = document.querySelector('.temps')
+const tempsSection = document.querySelector('.temps-section')
+const logoSection = document.querySelector('.logo')
 
 let lon
 let lat
@@ -17,7 +23,6 @@ const getLocalTime = (localTimeInS, timeZone) => {
   return localDate.toLocaleTimeString('de', {
     hours: '2 digit',
     minutes: '2 digit',
-    seconds: '2 digit',
   })
 }
 
@@ -53,34 +58,59 @@ const checkWeather = () => {
             const currentTime = getLocalTime(Date.now() / 1000, data.timezone)
             const sunsetTime = getLocalTime(data.sys.sunset, data.timezone)
             const sunriseTime = getLocalTime(data.sys.sunrise, data.timezone)
+            let img
+
+            if (data.weather[0].main === 'Clouds') {
+              img = `<img src="./assets/img/sunnycloudy.png" alt="cloudy">`
+            } else if (data.weather[0].main === 'Rain') {
+              img = `<img src="./assets/img/rainy.png" alt="rainy">`
+            } else if (data.weather[0].main === 'Clear') {
+              img = `<img src="./assets/img/sunny.png" alt="rainy">`
+            } else if (data.weather[0].main === 'Rain') {
+              img = `<img src="./assets/img/rainy.png" alt="rainy">`
+            }
+
+            const countryHtml = `${data.name}`
+            const tempsHtml = `${img}
+            <p class="temps-amount">${data.main.temp.toFixed(1)}°C</p>`
             const weatherHtml = `
-            <div>
-              <h2>Weather in</h2>
-              <h2> ${data.name}</h2>
-              <p>Weather:  <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png"> ${
-              data.main.temp
-            } °C</p>
-              <p>Feels like: ${data.main.feels_like}</p>
+            
+              <div>
               <p>Local time: ${currentTime}</p>
+              <p>Feels like: ${data.main.feels_like}</p>
               <p>Humidity: ${data.main.humidity}%</p>
-              <p>Cloudiness: ${data.weather[0].main}</p>
-              <p>Pressure: ${data.main.pressure} hpa</p>
               <p>Sunrise ${sunriseTime}</p>
-              <p>Sunset ${sunsetTime}</p>
-              <p>Windspeed: ${data.wind.speed}Km/h</p>
-              <p>Geo coordinates: ${lat.toFixed(2)}, ${lon.toFixed(2)}</p>
               </div>
+              <div>
+              <p>Pressure: ${data.main.pressure} hpa</p>
+              <p>Windspeed: ${data.wind.speed}Km/h</p>
+              <p>Cloudiness: ${data.weather[0].main}</p>
+              <p>Sunset ${sunsetTime}</p>
+              </div>
+              
+              
               `
             weatherOutput.innerHTML = weatherHtml
+            headline.innerHTML = countryHtml
+            tempsOutput.innerHTML = tempsHtml
           })
           .catch(error => console.log(error)),
       )
       .catch(error => console.log(error))
-      .then(() => {
-        fetch(
-          `https//:api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=de`,
-        )
-      })
+    // .then(() => {
+    //   fetch(
+    //     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=de`,
+    //   )
+    //     .then(response => {
+    //       if (!response.ok) {
+    //         throw new Error('something went wrong')
+    //       }
+    //       return response.json()
+    //     })
+    //     .then(dataForecast => {
+    //       console.log(dataForecast)
+    //     })
+    // })
   }
 }
 
@@ -90,5 +120,33 @@ const onKeypress = event => {
   }
 }
 
+// const windowLoad = () => {
+//   $('.col-3 input').val('')
+
+//   $('.input-effect input').focusout(function () {
+//     if ($(this).val() != '') {
+//       $(this).addClass('has-content')
+//     } else {
+//       $(this).removeClass('has-content')
+//     }
+//   })
+// }
+
+burger.addEventListener('click', () => {
+  inputCity.value = ''
+  inputSection.classList.toggle('hide')
+  tempsSection.classList.add('hide')
+  weatherOutput.classList.add('hide')
+  headline.classList.add('hide')
+  logoSection.classList.remove('hide')
+})
+
 inputSection.addEventListener('keypress', onKeypress)
 checkBtn.addEventListener('click', checkWeather)
+checkBtn.addEventListener('click', () => {
+  headline.classList.remove('hide')
+  inputSection.classList.add('hide')
+  tempsSection.classList.remove('hide')
+  weatherOutput.classList.remove('hide')
+  logoSection.classList.add('hide')
+})

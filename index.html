@@ -9,11 +9,24 @@
   </head>
 
   <body>
-    <section class="input-section">
-      <label for="city">City</label>
-      <input type="text" id="city" value="munich" />
-      <button class="check">Check weather</button>
-    </section>
-    <section class="weather-output"></section>
+    <main>
+      <header>
+        <a href="#"><div class="hamburger"></div></a>
+      </header>
+      <section class="input-section">
+        <div class="col-3 input-effect">
+          <input class="effect-17" type="text" id="city" />
+          <label for="city">Location</label>
+          <span class="focus-border"></span>
+        </div>
+        <button class="check">Check weather</button>
+      </section>
+      <div class="temps-section hide">
+        <h1 class="country-name"></h1>
+        <div class="temps"></div>
+      </div>
+      <section class="weather-output hide"></section>
+      <section class="weather-forecast"></section>
+    </main>
   </body>
 </html>

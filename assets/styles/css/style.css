@@ -1,3 +1,62 @@
+body {
+  position: relative;
+  background: center/cover no-repeat url("../../img/night.png");
+  background-attachment: fixed;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5%;
+  background-color: rgba(110, 110, 110, 0.696);
+}
+
+.hamburger {
+  background-color: #fff;
+  border-radius: 4px;
+  height: 3px;
+  position: relative;
+  width: 25px;
+}
+
+.hamburger::before {
+  background-color: #fff;
+  border-radius: 4px;
+  content: " ";
+  height: 3px;
+  position: absolute;
+  top: -8px;
+  width: 25px;
+}
+
+.hamburger::after {
+  background-color: #fff;
+  border-radius: 4px;
+  content: " ";
+  height: 3px;
+  position: absolute;
+  top: 8px;
+  width: 25px;
+}
+
+.effect-17 ~ label {
+  position: absolute;
+  left: 5%;
+  bottom: 30%;
+  color: #aaa;
+  transition: 0.4s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
+
+.effect-17:focus ~ label,
+.has-content.effect-17 ~ label {
+  bottom: 85px;
+  font-size: 1.5rem;
+  color: #ffb833;
+  transition: 0.4s;
+}
+
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -74,6 +133,109 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url(../../fonts/Montserrat-VariableFont_wght.ttf);
+}
+h1,
+h2,
+p,
+a {
+  font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+h2 {
+  font-weight: 200;
+}
+
+.input-section {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 12%;
+  left: 60%;
+}
+.input-section label {
+  color: #fff;
+  font-size: 2rem;
+  padding-left: 5%;
+  color: rgba(209, 209, 209, 0.433);
+}
+.input-section input {
+  border-radius: 10pc;
+  padding-inline-start: 8px;
+  border: solid 1px gray;
+  background-color: transparent;
+  color: rgba(209, 209, 209, 0.433);
+  min-height: 4vh;
+  max-width: 70%;
+  font-size: 1.5rem;
+  margin-top: 50px;
+}
+.input-section button {
+  display: block;
+  border-radius: 20px;
+  padding: 3%;
+  margin-top: 10px;
+  margin-left: 35px;
+  border: none;
+  background-color: rgba(209, 209, 209, 0.433);
+}
+
+.temps-section {
+  max-height: 53vh;
+  border-radius: 15%;
+  margin-top: 5%;
+  position: relative;
+}
+.temps-section img {
+  height: 400px;
+  height: 280px;
+}
+
+.weather-output {
+  background-color: rgba(110, 110, 110, 0.433);
+  margin-top: 3%;
+  border-radius: 12%;
+  min-height: 35vh;
+  display: flex;
+  justify-content: space-evenly;
+  padding-inline-start: 10px;
+  padding-block-start: 25px;
+}
+.weather-output p {
+  font-size: 1.4rem;
+  padding-bottom: 35px;
+  color: #fff;
+  font-weight: 400;
+}
+
+.country-name {
+  color: rgba(209, 209, 209, 0.433);
+  text-align: center;
+  font-size: 3rem;
+}
+
+.temps-amount {
+  font-size: 5rem;
+  padding-left: 150px;
+  color: #fff;
+  padding-top: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.logo {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+}
+.logo img {
+  height: 180px;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */

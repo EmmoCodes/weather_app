@@ -1,0 +1,60 @@
+@use './variables';
+
+body {
+  position: relative;
+  background: center / cover no-repeat url('../../img/night.png');
+  background-attachment: fixed;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5%;
+  background-color: rgba(110, 110, 110, 0.696);
+}
+
+.hamburger {
+  background-color: variables.$clr-white;
+  border-radius: 4px;
+  height: 3px;
+  position: relative;
+  width: 25px;
+}
+
+.hamburger::before {
+  background-color: variables.$clr-white;
+  border-radius: 4px;
+  content: ' ';
+  height: 3px;
+  position: absolute;
+  top: -8px;
+  width: 25px;
+}
+
+.hamburger::after {
+  background-color: variables.$clr-white;
+  border-radius: 4px;
+  content: ' ';
+  height: 3px;
+  position: absolute;
+  top: 8px;
+  width: 25px;
+}
+
+.effect-17 ~ label {
+  position: absolute;
+  left: 5%;
+  bottom: 30%;
+  color: #aaa;
+  transition: 0.4s;
+  z-index: -1;
+  letter-spacing: 0.5px;
+}
+
+.effect-17:focus ~ label,
+.has-content.effect-17 ~ label {
+  bottom: 85px;
+  font-size: 1.5rem;
+  color: #ffb833;
+  transition: 0.4s;
+}
