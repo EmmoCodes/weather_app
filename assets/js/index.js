@@ -138,7 +138,6 @@ burger.addEventListener('click', () => {
   tempsSection.classList.add('hide')
   weatherOutput.classList.add('hide')
   headline.classList.add('hide')
-  logoSection.classList.remove('hide')
 })
 
 inputSection.addEventListener('keypress', onKeypress)
@@ -148,5 +147,4 @@ checkBtn.addEventListener('click', () => {
   inputSection.classList.add('hide')
   tempsSection.classList.remove('hide')
   weatherOutput.classList.remove('hide')
-  logoSection.classList.add('hide')
 })
