@@ -6,11 +6,35 @@ body {
   background-attachment: fixed;
 }
 
-header {
+.night {
+  position: relative;
+  background: center / cover no-repeat url('../../img/night.png');
+  background-attachment: fixed;
+}
+
+.day {
+  position: relative;
+  background: center / cover no-repeat url('../../img/after_noon.png');
+  background-attachment: fixed;
+}
+
+footer {
   display: flex;
   justify-content: flex-end;
   padding: 5%;
   background-color: rgba(110, 110, 110, 0.696);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.back {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .hamburger {
@@ -18,7 +42,7 @@ header {
   border-radius: 4px;
   height: 3px;
   position: relative;
-  width: 25px;
+  width: 30px;
 }
 
 .hamburger::before {
@@ -27,8 +51,8 @@ header {
   content: ' ';
   height: 3px;
   position: absolute;
-  top: -8px;
-  width: 25px;
+  top: -10px;
+  width: 30px;
 }
 
 .hamburger::after {
@@ -37,15 +61,15 @@ header {
   content: ' ';
   height: 3px;
   position: absolute;
-  top: 8px;
-  width: 25px;
+  top: 10px;
+  width: 30px;
 }
 
 .effect-17 ~ label {
   position: absolute;
   left: 5%;
   bottom: 30%;
-  color: #aaa;
+  color: rgb(143, 142, 142);
   transition: 0.4s;
   z-index: -1;
   letter-spacing: 0.5px;
@@ -55,6 +79,6 @@ header {
 .has-content.effect-17 ~ label {
   bottom: 85px;
   font-size: 1.5rem;
-  color: #ffb833;
+  color: rgb(143, 142, 142);
   transition: 0.4s;
 }

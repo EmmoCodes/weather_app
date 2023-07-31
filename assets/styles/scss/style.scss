@@ -27,10 +27,9 @@ h2 {
   left: 60%;
 
   label {
-    color: variables.$clr-white;
+    color: rgb(143, 142, 142);
     font-size: 2rem;
     padding-left: 5%;
-    color: rgba(209, 209, 209, 0.433);
   }
 
   input {
@@ -38,25 +37,26 @@ h2 {
     padding-inline-start: 8px;
     border: solid 1px gray;
     background-color: transparent;
-    color: rgba(209, 209, 209, 0.433);
+    color: rgb(143, 142, 142);
     min-height: 4vh;
     max-width: 70%;
     font-size: 1.5rem;
     margin-top: 50px;
   }
+
   button {
-    display: block;
     border-radius: 20px;
     padding: 3%;
     margin-top: 10px;
-    margin-left: 35px;
+    margin-left: 30px;
     border: none;
     background-color: rgba(209, 209, 209, 0.433);
+    color: #000;
   }
 }
 
 .temps-section {
-  max-height: 53vh;
+  min-height: 55vh;
   border-radius: 15%;
   margin-top: 5%;
   position: relative;
@@ -64,13 +64,15 @@ h2 {
   img {
     height: 400px;
     height: 280px;
+    position: absolute;
+    top: 10%;
   }
 }
 .weather-output {
   background-color: rgba(110, 110, 110, 0.433);
   margin-top: 3%;
   border-radius: 12%;
-  min-height: 35vh;
+  max-height: 35vh;
   display: flex;
   justify-content: space-evenly;
   padding-inline-start: 10px;
@@ -85,16 +87,24 @@ h2 {
 }
 
 .country-name {
-  color: rgba(209, 209, 209, 0.433);
-  text-align: center;
+  color: rgb(255, 255, 255);
   font-size: 3rem;
+  text-align: center;
+  font-weight: 500;
+  position: absolute;
+  transform: translate(-50%);
+  left: 50%;
+  top: 0;
+  min-width: 400px;
 }
 
 .temps-amount {
   font-size: 5rem;
   padding-left: 150px;
-  color: variables.$clr-white;
+  color: rgb(255, 255, 255);
   padding-top: 20px;
+  position: absolute;
+  top: 75%;
 }
 
 .hide {

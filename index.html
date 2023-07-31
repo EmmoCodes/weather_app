@@ -10,10 +10,7 @@
 
   <body>
     <main>
-      <header>
-        <a href="#"><div class="hamburger"></div></a>
-      </header>
-      <section class="input-section">
+      <section class="input-section hide">
         <div class="col-3 input-effect">
           <input class="effect-17" type="text" id="city" />
           <label for="city">Location</label>
@@ -21,12 +18,16 @@
         </div>
         <button class="check">Check weather</button>
       </section>
-      <div class="temps-section hide">
+      <div class="temps-section">
         <h1 class="country-name"></h1>
         <div class="temps"></div>
       </div>
-      <section class="weather-output hide"></section>
+      <section class="weather-output"></section>
       <section class="weather-forecast"></section>
     </main>
+    <footer>
+      <div class="hamburger"></div>
+      <img class="back" src="./assets/img/back.png" alt="" />
+    </footer>
   </body>
 </html>
